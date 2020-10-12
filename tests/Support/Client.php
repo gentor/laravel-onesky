@@ -1,6 +1,6 @@
 <?php
 
-namespace Ageras\LaravelOneSky\Tests\Support;
+namespace Gentor\LaravelOneSky\Tests\Support;
 
 class Client
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ageras\LaravelOneSky\Commands;
+namespace Gentor\LaravelOneSky\Commands;
 
 use Illuminate\Console\Command;
 

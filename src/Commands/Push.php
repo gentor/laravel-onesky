@@ -1,8 +1,8 @@
 <?php
 
-namespace Ageras\LaravelOneSky\Commands;
+namespace Gentor\LaravelOneSky\Commands;
 
-use Ageras\LaravelOneSky\Exceptions\UnexpectedErrorWhileUploading;
+use Gentor\LaravelOneSky\Exceptions\UnexpectedErrorWhileUploading;
 
 class Push extends BaseCommand
 {

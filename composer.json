@@ -1,11 +1,15 @@
 {
-    "name": "ageras/laravel-onesky",
+    "name": "gentor/laravel-onesky",
     "description": "Use artisan commands to keep track of your onesky translations",
     "license": "MIT",
     "authors": [
         {
             "name": "Nicolai Østby",
             "email": "nicolaiostby@gmail.com"
+        },
+        {
+            "name": "Evgeni Nurkov",
+            "email": "evgeni.nurkov@gmail.com"
         }
     ],
     "require": {
@@ -16,8 +20,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Ageras\\LaravelOneSky\\": "src/",
-            "Ageras\\LaravelOneSky\\Tests\\": "tests/"
+            "Gentor\\LaravelOneSky\\": "src/",
+            "Gentor\\LaravelOneSky\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gentor\\LaravelOneSky\\ServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     },
     "require-dev": {

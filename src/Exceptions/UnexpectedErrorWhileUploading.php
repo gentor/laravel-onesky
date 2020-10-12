@@ -1,6 +1,6 @@
 <?php
 
-namespace Ageras\LaravelOneSky\Exceptions;
+namespace Gentor\LaravelOneSky\Exceptions;
 
 class UnexpectedErrorWhileUploading extends \RuntimeException
 {

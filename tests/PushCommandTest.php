@@ -1,8 +1,8 @@
 <?php
 
-namespace Ageras\LaravelOneSky\Tests;
+namespace Gentor\LaravelOneSky\Tests;
 
-use Ageras\LaravelOneSky\Commands\Push;
+use Gentor\LaravelOneSky\Commands\Push;
 use Dotenv\Dotenv;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\BufferedOutput;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ageras\LaravelOneSky;
+namespace Gentor\LaravelOneSky;
 
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 use Onesky\Api\Client;

@@ -2,7 +2,7 @@
 
 namespace spec\Ageras\LaravelOneSky\Commands;
 
-use Ageras\LaravelOneSky\Commands\Pull;
+use Gentor\LaravelOneSky\Commands\Pull;
 use PhpSpec\ObjectBehavior;
 
 class PullSpec extends ObjectBehavior

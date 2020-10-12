@@ -1,9 +1,9 @@
 <?php
 
-namespace Ageras\LaravelOneSky\Tests;
+namespace Gentor\LaravelOneSky\Tests;
 
-use Ageras\LaravelOneSky\ServiceProvider;
-use Ageras\LaravelOneSky\Tests\Support\Client;
+use Gentor\LaravelOneSky\ServiceProvider;
+use Gentor\LaravelOneSky\Tests\Support\Client;
 use Dotenv\Dotenv;
 
 class TestCase extends \Orchestra\Testbench\TestCase

@@ -2,7 +2,7 @@
 
 namespace spec\Ageras\LaravelOneSky\Commands;
 
-use Ageras\LaravelOneSky\Commands\Push;
+use Gentor\LaravelOneSky\Commands\Push;
 use PhpSpec\ObjectBehavior;
 
 class PushSpec extends ObjectBehavior

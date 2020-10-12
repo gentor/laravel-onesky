@@ -2,7 +2,7 @@
 
 namespace spec\Ageras\LaravelOneSky\Commands;
 
-use Ageras\LaravelOneSky\Commands\OneSky;
+use Gentor\LaravelOneSky\Commands\OneSky;
 use PhpSpec\ObjectBehavior;
 
 class OneSkySpec extends ObjectBehavior

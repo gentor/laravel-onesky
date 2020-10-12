@@ -1,8 +1,8 @@
 <?php
 
-namespace Ageras\LaravelOneSky\Commands;
+namespace Gentor\LaravelOneSky\Commands;
 
-use Ageras\LaravelOneSky\Exceptions\NumberExpected;
+use Gentor\LaravelOneSky\Exceptions\NumberExpected;
 use Illuminate\Console\Command;
 
 class BaseCommand extends Command
