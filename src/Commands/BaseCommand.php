@@ -4,6 +4,7 @@ namespace Gentor\LaravelOneSky\Commands;
 
 use Gentor\LaravelOneSky\Exceptions\NumberExpected;
 use Illuminate\Console\Command;
+use File;
 
 class BaseCommand extends Command
 {
@@ -49,11 +50,11 @@ class BaseCommand extends Command
         $config = $this->config();
         $project = $this->option('project');
 
-        if (! $project && isset($config['default_project_id'])) {
+        if (!$project && isset($config['default_project_id'])) {
             $project = $config['default_project_id'];
         }
 
-        if ($project && (string) (int) $project === (string) $project) {
+        if ($project && (string)(int)$project === (string)$project) {
             return $project;
         }
 
@@ -62,15 +63,15 @@ class BaseCommand extends Command
 
     public function scanDir($dir, $directoriesOnly = false)
     {
-        $fileNames = array_values(array_diff(scandir($dir), ['..', '.']));
-
-        if (! $directoriesOnly) {
-            return $fileNames;
+        if ($directoriesOnly) {
+            return array_map(function ($path) {
+                return basename($path);
+            }, File::directories($dir));
         }
 
-        return array_filter($fileNames, function ($fileName) use (&$dir) {
-            return is_dir($dir . DIRECTORY_SEPARATOR . $fileName);
-        });
+        return array_map(function ($file) {
+            return $file->getFilename();
+        }, File::files($dir));
     }
 
     /**

@@ -6,29 +6,33 @@ use Gentor\LaravelOneSky\Exceptions\UnexpectedErrorWhileUploading;
 
 class Push extends BaseCommand
 {
-    protected $signature = 'onesky:push {--project=}';
+    protected $signature = 'onesky:push {--lang=} {--project=}';
 
     protected $description = 'Push the language files to OneSky';
 
     public function handle()
     {
-        $locale = $this->baseLocale();
-        $translationsPath = $this->translationsPath() . DIRECTORY_SEPARATOR . $locale;
+        $locales = $this->option('lang') ? $this->locales() : [$this->baseLocale()];
 
-        $files = $this->scanDir($translationsPath);
+        foreach ($locales as $locale) {
+            $this->line('Uploading translations for locale: ' . $locale);
+            $translationsPath = $this->translationsPath() . DIRECTORY_SEPARATOR . $locale;
 
-        $files = array_map(function ($fileName) use (&$locale, &$translationsPath) {
-            return $translationsPath . DIRECTORY_SEPARATOR . $fileName;
-        }, $files);
+            $files = $this->scanDir($translationsPath);
 
-        $this->uploadFiles(
-            $this->client(),
-            $this->project(),
-            $locale,
-            $files
-        );
+            $files = array_map(function ($fileName) use (&$locale, &$translationsPath) {
+                return $translationsPath . DIRECTORY_SEPARATOR . $fileName;
+            }, $files);
 
-        $this->info('Files were uploaded successfully!');
+            $this->uploadFiles(
+                $this->client(),
+                $this->project(),
+                $locale,
+                $files
+            );
+
+            $this->line('Files were uploaded successfully!');
+        }
     }
 
     /**
@@ -42,6 +46,7 @@ class Push extends BaseCommand
         $data = $this->prepareUploadData($project, $locale, $files);
 
         foreach ($data as $d) {
+            $this->info("Uploading file {$d['file']}");
             $client->files('upload', $d);
         }
     }
@@ -64,10 +69,11 @@ class Push extends BaseCommand
         $data = [];
         foreach ($files as $file) {
             $data[] = [
-                'project_id'  => $project,
-                'file'        => $file,
+                'project_id' => $project,
+                'file' => $file,
                 'file_format' => 'PHP_SHORT_ARRAY',
-                'locale'      => $locale,
+                'locale' => array_key_exists($locale, $this->config()['locale_mapping']) ?
+                    $this->config()['locale_mapping'][$locale] : $locale,
             ];
         }
 

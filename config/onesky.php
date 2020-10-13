@@ -8,4 +8,7 @@ return [
 
     'api_key' => getenv('ONESKY_API_KEY'),
     'secret'  => getenv('ONESKY_SECRET'),
+    'locale_mapping' => [
+        'en' => 'en-US',
+    ],
 ];
