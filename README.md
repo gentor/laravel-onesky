@@ -1,10 +1,9 @@
-# Ageras Laravel Onesky
-[![Latest Stable Version](https://poser.pugx.org/ageras/laravel-onesky/v/stable)](https://packagist.org/packages/ageras/laravel-onesky)
-[![CircleCI](https://circleci.com/gh/ageras-com/laravel-onesky/tree/master.svg?style=svg)](https://circleci.com/gh/ageras-com/laravel-onesky/tree/master)
-[![Total Downloads](https://poser.pugx.org/ageras/laravel-onesky/downloads)](https://packagist.org/packages/ageras/laravel-onesky)
-[![Latest Unstable Version](https://poser.pugx.org/ageras/laravel-onesky/v/unstable)](https://packagist.org/packages/ageras/laravel-onesky)
-[![License](https://poser.pugx.org/ageras/laravel-onesky/license)](https://packagist.org/packages/ageras/laravel-onesky)
-[![Monthly Downloads](https://poser.pugx.org/ageras/laravel-onesky/d/monthly)](https://packagist.org/packages/ageras/laravel-onesky)
+# Laravel Onesky
+[![Latest Stable Version](https://poser.pugx.org/gentor/laravel-onesky/v/stable)](https://packagist.org/packages/gentor/laravel-onesky)
+[![Total Downloads](https://poser.pugx.org/gentor/laravel-onesky/downloads)](https://packagist.org/packages/gentor/laravel-onesky)
+[![Latest Unstable Version](https://poser.pugx.org/gentor/laravel-onesky/v/unstable)](https://packagist.org/packages/gentor/laravel-onesky)
+[![License](https://poser.pugx.org/gentor/laravel-onesky/license)](https://packagist.org/packages/gentor/laravel-onesky)
+[![Monthly Downloads](https://poser.pugx.org/gentor/laravel-onesky/d/monthly)](https://packagist.org/packages/gentor/laravel-onesky)
 
 ## Description
 A seamless integration between Laravel and the Onesky API.
@@ -15,7 +14,7 @@ By using artisan commands you can easily push new phrases ready for translation 
 
 Require this package using composer:
 ```
-composer require ageras/laravel-onesky
+composer require gentor/laravel-onesky
 ```
 
 ## Usage
@@ -24,13 +23,13 @@ Add the service provider to the `app.php` file:
 ```
 'providers' => [
     ...
-    Ageras\LaravelOneSky\ServiceProvider::class,
+    Gentor\LaravelOneSky\ServiceProvider::class,
 ]
 ```
 
 Copy the package config to your local config with the publish command:
 ```
-php artisan vendor:publish --provider="Ageras\LaravelOneSky\ServiceProvider"
+php artisan vendor:publish --provider="Gentor\LaravelOneSky\ServiceProvider"
 ```
 
 Change the newly published `onesky.php` file so that it matches your project.
