@@ -36,8 +36,10 @@ class Pull extends BaseCommand
 
     public function downloadTranslations($client, $project, $locales, $files)
     {
-        foreach ((array) $locales as $locale) {
-            foreach ((array) $files as $file) {
+        foreach ((array)$locales as $locale) {
+            $this->info('Downloading translations for locale: ' . $locale);
+            foreach ((array)$files as $file) {
+                $this->info('Downloading file: ' . $file);
                 $this->downloadTranslation($client, $project, $locale, $file);
             }
         }
@@ -49,7 +51,7 @@ class Pull extends BaseCommand
 
         $response = $client->translations('export', $data);
 
-        if (! is_null(json_decode($response))) {
+        if (!is_null(json_decode($response))) {
             $this->result = static::UNKNOWN_ERROR;
             $this->invalidResponse($locale, $file, $response);
 
@@ -72,9 +74,10 @@ class Pull extends BaseCommand
     public function prepareTranslationData($project, $locale, $file)
     {
         return [
-            'project_id'       => $project,
-            'locale'           => $locale,
+            'project_id' => $project,
             'source_file_name' => $file,
+            'locale' => array_key_exists($locale, $this->config()['locale_mapping']) ?
+                $this->config()['locale_mapping'][$locale] : $locale,
         ];
     }
 }
